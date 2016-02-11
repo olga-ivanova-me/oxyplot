@@ -82,6 +82,11 @@ namespace OxyPlot.Series
         public string LabelFormatString { get; set; }
 
         /// <summary>
+        /// Gets or sets the formatting function for the labels. The default value is <c>null</c>.
+        /// </summary>
+        public Func<double, string> LabelFormatter { get; set; }
+
+        /// <summary>
         /// Gets or sets the label margins.
         /// </summary>
         public double LabelMargin { get; set; }
@@ -237,7 +242,7 @@ namespace OxyPlot.Series
 
                 this.RenderItem(rc, clippingRect, topValue, categoryValue, actualBarWidth, item, rect);
 
-                if (this.LabelFormatString != null)
+                if (this.LabelFormatString != null || this.LabelFormatter != null)
                 {
                     this.RenderLabel(rc, clippingRect, rect, value, i);
                 }
@@ -490,6 +495,32 @@ namespace OxyPlot.Series
             }
 
             rc.DrawClippedRectangleAsPolygon(clippingRect, rect, this.GetSelectableFillColor(actualFillColor), this.StrokeColor, this.StrokeThickness);
+        }
+
+        /// <summary>
+        /// Formats the label value depends on formatter: <see cref="P:LabelFormatString" /> 
+        /// or <see cref="P:LabelFormatter" />
+        /// </summary>
+        /// <param name="barValue"> Bar value. </param>
+        /// <param name="index"> The index. </param>
+        /// <returns> formatted string. </returns>
+        /// <remarks> Set formatter is used for formatting label values. 
+        /// It both of them are set, the default 
+        /// <see cref="P:LabelFormatString" /> is used.</remarks>
+        protected virtual string FormatValue(double barValue, int index)
+        {
+            string formattedValue;
+            if (this.LabelFormatter != null)
+            {
+                formattedValue = this.LabelFormatter(barValue);
+            }
+            else
+            {
+                formattedValue = StringHelper.Format(this.ActualCulture, this.LabelFormatString,
+                    this.GetItem(this.ValidItemsIndexInversion[index]), barValue);
+            }
+
+            return formattedValue;
         }
 
         /// <summary>
