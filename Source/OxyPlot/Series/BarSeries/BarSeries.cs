@@ -104,6 +104,8 @@ namespace OxyPlot.Series
             var s = StringHelper.Format(this.ActualCulture, this.LabelFormatString, this.GetItem(this.ValidItemsIndexInversion[index]), value);
             HorizontalAlignment ha;
             ScreenPoint pt;
+            var textSize = rc.MeasureText(s, this.Font, this.FontSize, this.FontWeight);
+            var labelPlacement = (textSize.Height > rect.Height) ? LabelPlacement.Outside : this.LabelPlacement;
             switch (this.LabelPlacement)
             {
                 case LabelPlacement.Inside:
