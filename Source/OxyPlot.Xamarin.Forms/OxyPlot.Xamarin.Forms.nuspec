@@ -30,7 +30,7 @@
         <dependency id="Xamarin.Forms" version="2.0.0.6490" />
       </group>
       <group targetFramework="uap">
-        <dependency id="OxyPlot.UWP" version="[$version$]"/>
+        <dependency id="OxyPlot.Windows" version="[$version$]"/>
         <dependency id="Xamarin.Forms" version="2.0.0.6490" />
       </group>
       <group>
