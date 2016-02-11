@@ -101,7 +101,7 @@ namespace OxyPlot.Series
         /// <param name="i">The index.</param>
         protected override void RenderLabel(IRenderContext rc, OxyRect clippingRect, OxyRect rect, double value, int i)
         {
-            var s = StringHelper.Format(this.ActualCulture, this.LabelFormatString, this.GetItem(this.ValidItemsIndexInversion[i]), value);
+            var s = FormatValue(value, i);
             ScreenPoint pt;
             VerticalAlignment va;
             switch (this.LabelPlacement)
