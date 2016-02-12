@@ -25,10 +25,10 @@ namespace OxyPlot.Xamarin.Android
     {
         /// <summary>
         /// The factor that scales from OxyPlot´s device independent pixels (96 dpi) to 
-        /// Android´s density-independent pixels (160 dpi).
+        /// Android´s current density-independent pixels (dpi).
         /// </summary>
         /// <remarks>See <a href="http://developer.android.com/guide/practices/screens_support.html">Supporting multiple screens.</a>.</remarks>
-        public const double Scale = 160d / 96d;
+        public double Scale;
 
         /// <summary>
         /// The rendering lock object.
@@ -344,7 +344,20 @@ namespace OxyPlot.Xamarin.Android
             {
                 if (this.rc == null)
                 {
-                    this.rc = new CanvasRenderContext(Scale);
+                    var displayMetrics = this.Context.Resources.DisplayMetrics;
+
+                    // The factors that scale from OxyPlot´s device independent pixels (96 dpi) to
+                    // Android's DPI and SPI units.
+
+                    var densityDpi = (double) displayMetrics.DensityDpi;
+                    this.Scale = densityDpi/96d;
+
+                    // get scaled DPI
+                    var scaledDpi = densityDpi*(displayMetrics.ScaledDensity/displayMetrics.Density);
+                    // get scale factor from the scaled DPI
+                    var fontScale = scaledDpi/96d;
+
+                    this.rc = new CanvasRenderContext(Scale, fontScale);
                 }
 
                 this.rc.SetTarget(canvas);
