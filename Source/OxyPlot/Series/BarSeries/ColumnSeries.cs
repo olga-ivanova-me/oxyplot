@@ -104,7 +104,22 @@ namespace OxyPlot.Series
             var s = FormatValue(value, i);
             ScreenPoint pt;
             VerticalAlignment va;
-            switch (this.LabelPlacement)
+            var labelPlacement = this.LabelPlacement;
+            var textColor = this.ActualTextColor;
+            if (labelPlacement == LabelPlacement.Inside || labelPlacement == LabelPlacement.Middle)
+            {
+                var textSize = rc.MeasureText(s, this.ActualFont, this.ActualFontSize, this.ActualFontWeight);
+                if (textSize.Height > rect.Height)
+                {
+                    labelPlacement = LabelPlacement.Outside;
+                    if (this.AlternativeTextColor != default(OxyColor))
+                    {
+                        textColor = this.AlternativeTextColor;
+                    }
+                }
+            }
+
+            switch (labelPlacement)
             {
                 case LabelPlacement.Inside:
                     pt = new ScreenPoint((rect.Left + rect.Right) / 2, rect.Top + this.LabelMargin);
@@ -128,7 +143,7 @@ namespace OxyPlot.Series
                 clippingRect,
                 pt,
                 s,
-                this.ActualTextColor,
+                textColor,
                 this.ActualFont,
                 this.ActualFontSize,
                 this.ActualFontWeight,

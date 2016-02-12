@@ -103,6 +103,15 @@ namespace OxyPlot.Series
         public OxyColor NegativeFillColor { get; set; }
 
         /// <summary>
+        /// Gets or sets the text color of the bar labels when their placement differ from the 
+        /// set property <see cref="P:LabelPlacement"/>. 
+        /// (e.g. when bar label should be placed inside the bar but there are no place for label. 
+        /// So, it will be placed outside with this color.)
+        /// </summary>
+        /// <value>The color.</value>
+        public OxyColor AlternativeTextColor { get; set; }
+
+        /// <summary>
         /// Gets or sets the stack index indication to which stack the series belongs. Default is 0. Hence, all stacked series belong to the same stack.
         /// </summary>
         public string StackGroup { get; set; }
