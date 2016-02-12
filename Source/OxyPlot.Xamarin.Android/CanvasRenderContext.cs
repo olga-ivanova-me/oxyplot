@@ -70,15 +70,13 @@ namespace OxyPlot.Xamarin.Android
         }
 
         /// <summary>
-        /// Gets the factor that this.Scales from OxyPlot´s device independent pixels (96 dpi) to 
-        /// Android´s density-independent pixels (160 dpi).
+        /// Gets the factor for Android´s density-independent pixels (160 dpi as baseline density).
         /// </summary>
         /// <remarks>See <a href="http://developer.android.com/guide/practices/screens_support.html">Supporting multiple screens.</a>.</remarks>
         public double Scale { get; private set; }
 
         /// <summary>
-        /// Gets the factor that this.FontScales from OxyPlot's device independent pixels (96 dpi) 
-        /// to Android's scale-independent pixels.
+        /// Gets the factor for Android's scale-independent pixels (160 dpi as baseline density).
         /// </summary>
         public double FontScale { get; private set; }
 
