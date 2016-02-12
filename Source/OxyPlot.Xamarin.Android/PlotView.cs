@@ -346,18 +346,11 @@ namespace OxyPlot.Xamarin.Android
                 {
                     var displayMetrics = this.Context.Resources.DisplayMetrics;
 
-                    // The factors that scale from OxyPlot´s device independent pixels (96 dpi) to
-                    // Android's DPI and SPI units.
-
-                    var densityDpi = (double) displayMetrics.DensityDpi;
-                    this.Scale = densityDpi/96d;
-
-                    // get scaled DPI
-                    var scaledDpi = densityDpi*(displayMetrics.ScaledDensity/displayMetrics.Density);
-                    // get scale factor from the scaled DPI
-                    var fontScale = scaledDpi/96d;
-
-                    this.rc = new CanvasRenderContext(Scale, fontScale);
+                    // The factors for scaling to Android's DPI and SPI units.
+                    // The density independent pixel is equivalent to one physical pixel 
+                    // on a 160 dpi screen (baseline density)
+                    this.Scale = displayMetrics.Density;
+                    this.rc = new CanvasRenderContext(Scale, displayMetrics.ScaledDensity);
                 }
 
                 this.rc.SetTarget(canvas);
