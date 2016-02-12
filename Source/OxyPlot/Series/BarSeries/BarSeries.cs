@@ -104,9 +104,22 @@ namespace OxyPlot.Series
             var s = StringHelper.Format(this.ActualCulture, this.LabelFormatString, this.GetItem(this.ValidItemsIndexInversion[index]), value);
             HorizontalAlignment ha;
             ScreenPoint pt;
-            var textSize = rc.MeasureText(s, this.Font, this.FontSize, this.FontWeight);
-            var labelPlacement = (textSize.Height > rect.Height) ? LabelPlacement.Outside : this.LabelPlacement;
-            switch (this.LabelPlacement)
+            var labelPlacement = this.LabelPlacement;
+            var textColor = this.ActualTextColor;
+            if (labelPlacement == LabelPlacement.Inside || labelPlacement == LabelPlacement.Middle)
+            {
+                var textSize = rc.MeasureText(s, this.Font, this.FontSize, this.FontWeight);
+                if (textSize.Height > rect.Height)
+                {
+                    labelPlacement = LabelPlacement.Outside;
+                    if (this.AlternativeTextColor != default(OxyColor))
+                    {
+                        textColor = this.AlternativeTextColor;
+                    }
+                }
+            }
+            
+            switch (labelPlacement)
             {
                 case LabelPlacement.Inside:
                     pt = new ScreenPoint(rect.Right - this.LabelMargin, (rect.Top + rect.Bottom) / 2);
@@ -130,7 +143,7 @@ namespace OxyPlot.Series
                 clippingRect,
                 pt,
                 s,
-                this.ActualTextColor,
+                textColor,
                 this.ActualFont,
                 this.ActualFontSize,
                 this.ActualFontWeight,
