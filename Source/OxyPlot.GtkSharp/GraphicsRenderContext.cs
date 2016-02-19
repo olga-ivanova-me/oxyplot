@@ -151,6 +151,7 @@ namespace OxyPlot.GtkSharp
         /// <param name="dashArray">The dash array.</param>
         /// <param name="lineJoin">The line join.</param>
         /// <param name="aliased">if set to <c>true</c> [aliased].</param>
+        /// <param name="shadowRadius">Shadow radius.</param>
         public override void DrawPolygon(
             IList<ScreenPoint> points,
             OxyColor fill,
@@ -158,7 +159,8 @@ namespace OxyPlot.GtkSharp
             double thickness,
             double[] dashArray,
             OxyPlot.LineJoin lineJoin,
-            bool aliased)
+            bool aliased,
+            float shadowRadius = 0)
         {
             if (fill.IsVisible() && points.Count >= 2)
             {

@@ -104,6 +104,7 @@ namespace PerformanceTest
         /// <param name="dashArray">The dash array (in device independent units, 1/96 inch).</param>
         /// <param name="lineJoin">The line join type.</param>
         /// <param name="aliased">If set to <c>true</c> the polygon will be aliased.</param>
+        /// /// <param name="shadowRadius">Shadow radius.</param>
         public void DrawPolygon(
             IList<ScreenPoint> points,
             OxyColor fill,
@@ -111,7 +112,8 @@ namespace PerformanceTest
             double thickness = 1,
             double[] dashArray = null,
             LineJoin lineJoin = LineJoin.Miter,
-            bool aliased = false)
+            bool aliased = false,
+            float shadowRadius = 0)
         {
         }
 

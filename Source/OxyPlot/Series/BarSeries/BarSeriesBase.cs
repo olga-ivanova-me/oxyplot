@@ -129,6 +129,11 @@ namespace OxyPlot.Series
         public double StrokeThickness { get; set; }
 
         /// <summary>
+        /// Gets or sets the shadow radius of the bar item.
+        /// </summary>
+        public float ShadowRadius { get; set; }
+
+        /// <summary>
         /// Gets or sets the value field.
         /// </summary>
         public string ValueField { get; set; }
@@ -503,7 +508,10 @@ namespace OxyPlot.Series
                 }
             }
 
-            rc.DrawClippedRectangleAsPolygon(clippingRect, rect, this.GetSelectableFillColor(actualFillColor), this.StrokeColor, this.StrokeThickness);
+            // Get the shadow radius of the item
+            var actualShadowRadius = (item.ShadowRadius != 0) ? item.ShadowRadius : this.ShadowRadius;
+
+            rc.DrawClippedRectangleAsPolygon(clippingRect, rect, this.GetSelectableFillColor(actualFillColor), this.StrokeColor, this.StrokeThickness, actualShadowRadius);
         }
 
         /// <summary>
