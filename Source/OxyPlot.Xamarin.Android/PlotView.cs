@@ -349,6 +349,9 @@ namespace OxyPlot.Xamarin.Android
 
                 this.rc.SetTarget(canvas);
                 
+                // shadows on bar series will be unvisible without setting layer type
+                this.SetLayerType(LayerType.Software, null);
+
                 ((IPlotModel)actualModel).Render(this.rc, Width / Scale, Height / Scale);
             }
         }

@@ -31,6 +31,12 @@ namespace OxyPlot.Series
         public OxyColor Color { get; set; }
 
         /// <summary>
+        /// Gets or sets the value of shadow radius.
+        /// </summary>
+        /// <remarks>If the radius is not specified (default), the shadow radius of the series will be used.</remarks>
+        public float ShadowRadius { get; set; }
+
+        /// <summary>
         /// Gets or sets the value of the item.
         /// </summary>
         public double Value { get; set; }

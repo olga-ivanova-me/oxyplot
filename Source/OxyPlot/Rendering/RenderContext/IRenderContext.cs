@@ -90,6 +90,7 @@ namespace OxyPlot
         /// <param name="dashArray">The dash array (in device independent units, 1/96 inch).</param>
         /// <param name="lineJoin">The line join type.</param>
         /// <param name="aliased">If set to <c>true</c> the polygon will be aliased.</param>
+        /// <param name="shadowRadius">The shadow radius.</param>
         void DrawPolygon(
             IList<ScreenPoint> points,
             OxyColor fill,
@@ -97,7 +98,8 @@ namespace OxyPlot
             double thickness = 1.0,
             double[] dashArray = null,
             LineJoin lineJoin = LineJoin.Miter,
-            bool aliased = false);
+            bool aliased = false, 
+            float shadowRadius = 0);
 
         /// <summary>
         /// Draws a collection of polygons, where all polygons have the same stroke and fill.

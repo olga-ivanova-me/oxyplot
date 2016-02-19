@@ -285,6 +285,7 @@ namespace OxyPlot.Wpf
         /// <param name="dashArray">The dash array (in device independent units, 1/96 inch).</param>
         /// <param name="lineJoin">The line join type.</param>
         /// <param name="aliased">If set to <c>true</c> the polygon will be aliased.</param>
+        /// <param name="shadowRadius">Shadow radius.</param>
         public void DrawPolygon(
             IList<ScreenPoint> points,
             OxyColor fill,
@@ -292,7 +293,8 @@ namespace OxyPlot.Wpf
             double thickness,
             double[] dashArray,
             LineJoin lineJoin,
-            bool aliased)
+            bool aliased,
+            float shadowRadius = 0)
         {
             var e = this.CreateAndAdd<Polygon>();
             this.SetStroke(e, stroke, thickness, lineJoin, dashArray, 0, aliased);

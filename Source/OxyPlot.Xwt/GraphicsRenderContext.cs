@@ -131,13 +131,15 @@ namespace OxyPlot.Xwt
         /// <param name="dashArray">The dash array (in device independent units, 1/96 inch).</param>
         /// <param name="lineJoin">The line join type.</param>
         /// <param name="aliased">If set to <c>true</c> the polygon will be aliased.</param>
+		/// <param name="shadowRadius">Shadow radius.</param>
         public override void DrawPolygon (IList<ScreenPoint> points,
                                     OxyColor fill,
                                     OxyColor stroke,
                                     double thickness,
                                     double[] dashArray,
                                     LineJoin lineJoin,
-                                    bool aliased)
+                                    bool aliased,
+									float shadowRadius = 0)
         {
             if (fill.IsVisible () && points.Count >= 2) {
                 // g.SmoothingMode = aliased ? SmoothingMode.None : SmoothingMode.HighQuality; // TODO: Smoothing modes

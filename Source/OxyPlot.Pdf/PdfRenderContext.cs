@@ -157,6 +157,7 @@ namespace OxyPlot.Pdf
         /// <param name="dashArray">The dash array.</param>
         /// <param name="lineJoin">The line join type.</param>
         /// <param name="aliased">if set to <c>true</c> the shape will be aliased.</param>
+        /// <param name="shadowRadius">Shadow radius.</param>
         public override void DrawPolygon(
             IList<ScreenPoint> points,
             OxyColor fill,
@@ -164,7 +165,8 @@ namespace OxyPlot.Pdf
             double thickness,
             double[] dashArray,
             LineJoin lineJoin,
-            bool aliased)
+            bool aliased,
+            float shadowRadius = 0)
         {
             this.g.SmoothingMode = aliased ? XSmoothingMode.None : XSmoothingMode.HighQuality;
 

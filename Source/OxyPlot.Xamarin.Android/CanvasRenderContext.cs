@@ -206,12 +206,15 @@ namespace OxyPlot.Xamarin.Android
         /// <param name="dashArray">The dash array.</param>
         /// <param name="lineJoin">The line join type.</param>
         /// <param name="aliased">If set to <c>true</c> the shape will be aliased.</param>
-        public override void DrawPolygon(IList<ScreenPoint> points, OxyColor fill, OxyColor stroke, double thickness, double[] dashArray, LineJoin lineJoin, bool aliased)
+        /// <param name="shadowRadius">Shadow radius.</param>
+        public override void DrawPolygon(IList<ScreenPoint> points, OxyColor fill, OxyColor stroke, double thickness, double[] dashArray, LineJoin lineJoin, bool aliased, float shadowRadius = 0)
         {
             this.paint.Reset();
             {
                 this.path.Reset();
                 {
+                    this.paint.SetShadowLayer(shadowRadius, 2, 2, Color.Gray);
+
                     this.SetPath(points, aliased);
                     this.path.Close();
 

@@ -386,17 +386,19 @@ namespace OxyPlot
         /// <param name="fill">The fill color.</param>
         /// <param name="stroke">The stroke color.</param>
         /// <param name="thickness">The stroke thickness.</param>
+        /// <param name="shadowRadius">The shadow radius.</param>
         public static void DrawClippedRectangleAsPolygon(
             this IRenderContext rc,
             OxyRect clippingRectangle,
             OxyRect rect,
             OxyColor fill,
             OxyColor stroke,
-            double thickness)
+            double thickness,
+            float shadowRadius = 0)
         {
             if (rc.SetClip(clippingRectangle))
             {
-                rc.DrawRectangleAsPolygon(rect, fill, stroke, thickness);
+                rc.DrawRectangleAsPolygon(rect, fill, stroke, thickness, shadowRadius);
                 rc.ResetClip();
                 return;
             }
@@ -407,7 +409,7 @@ namespace OxyPlot
                 return;
             }
 
-            rc.DrawRectangleAsPolygon(clippedRect.Value, fill, stroke, thickness);
+            rc.DrawRectangleAsPolygon(clippedRect.Value, fill, stroke, thickness, shadowRadius);
         }
 
         /// <summary>
@@ -776,13 +778,14 @@ namespace OxyPlot
         /// <param name="fill">The fill color.</param>
         /// <param name="stroke">The stroke color.</param>
         /// <param name="thickness">The thickness.</param>
-        public static void DrawRectangleAsPolygon(this IRenderContext rc, OxyRect rect, OxyColor fill, OxyColor stroke, double thickness)
+        /// <param name="shadowRadius">The shadow raduis.</param>
+        public static void DrawRectangleAsPolygon(this IRenderContext rc, OxyRect rect, OxyColor fill, OxyColor stroke, double thickness, float shadowRadius = 0)
         {
             var sp0 = new ScreenPoint(rect.Left, rect.Top);
             var sp1 = new ScreenPoint(rect.Right, rect.Top);
             var sp2 = new ScreenPoint(rect.Right, rect.Bottom);
             var sp3 = new ScreenPoint(rect.Left, rect.Bottom);
-            rc.DrawPolygon(new[] { sp0, sp1, sp2, sp3 }, fill, stroke, thickness, null, LineJoin.Miter, true);
+            rc.DrawPolygon(new[] { sp0, sp1, sp2, sp3 }, fill, stroke, thickness, null, LineJoin.Miter, true, shadowRadius);
         }
 
         /// <summary>

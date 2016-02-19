@@ -152,6 +152,7 @@ namespace OxyPlot.WindowsForms
         /// <param name="dashArray">The dash array.</param>
         /// <param name="lineJoin">The line join type.</param>
         /// <param name="aliased">if set to <c>true</c> the shape will be aliased.</param>
+        /// <param name="shadowRadius">Shadow radius.</param>
         public override void DrawPolygon(
             IList<ScreenPoint> points,
             OxyColor fill,
@@ -159,7 +160,8 @@ namespace OxyPlot.WindowsForms
             double thickness,
             double[] dashArray,
             OxyPlot.LineJoin lineJoin,
-            bool aliased)
+            bool aliased,
+            float shadowRadius = 0)
         {
             if (points.Count < 2)
             {
