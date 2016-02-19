@@ -41,6 +41,7 @@ namespace OxyPlot.Series
             this.StrokeThickness = 0;
             this.TrackerFormatString = DefaultTrackerFormatString;
             this.LabelMargin = 2;
+            this.AlternativeTextColor = OxyColors.Undefined;
             this.StackGroup = string.Empty;
         }
 
@@ -109,6 +110,7 @@ namespace OxyPlot.Series
         /// So, it will be placed outside with this color.)
         /// </summary>
         /// <value>The color.</value>
+        ///  <remarks>If the color is not specified, the default text color will be used.</remarks>
         public OxyColor AlternativeTextColor { get; set; }
 
         /// <summary>
@@ -258,7 +260,7 @@ namespace OxyPlot.Series
 
                 if (this.LabelFormatString != null || this.LabelFormatter != null)
                 {
-                    this.RenderLabel(rc, clippingRect, rect, value, i);
+                    this.RenderLabel(rc, clippingRect, rect, value, i, item.TextColor, item.AlternativeTextColor);
                 }
 
                 if (!this.IsStacked)
@@ -548,7 +550,10 @@ namespace OxyPlot.Series
         /// <param name="rect">The rectangle of the item.</param>
         /// <param name="value">The value of the label.</param>
         /// <param name="index">The index of the bar item.</param>
+        /// <param name="itemTextColor">The item text color.</param>
+        /// <param name="itemAlternativeTextColor">The item alternative text color.</param>
         protected abstract void RenderLabel(
-            IRenderContext rc, OxyRect clippingRect, OxyRect rect, double value, int index);
+            IRenderContext rc, OxyRect clippingRect, OxyRect rect, double value, int index, 
+            OxyColor itemTextColor, OxyColor itemAlternativeTextColor);
     }
 }

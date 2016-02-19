@@ -99,26 +99,33 @@ namespace OxyPlot.Series
         /// <param name="rect">The rectangle of the item.</param>
         /// <param name="value">The value of the label.</param>
         /// <param name="index">The index of the bar item.</param>
-        protected override void RenderLabel(IRenderContext rc, OxyRect clippingRect, OxyRect rect, double value, int index)
+        /// <param name="itemTextColor">The item text color.</param>
+        /// <param name="itemAlternativeTextColor">The item alternative text color.</param>
+        protected override void RenderLabel(IRenderContext rc, OxyRect clippingRect, OxyRect rect, 
+            double value, int index, OxyColor itemTextColor, OxyColor itemAlternativeTextColor)
         {
             var s = FormatValue(value, index);
             HorizontalAlignment ha;
             ScreenPoint pt;
             var labelPlacement = this.LabelPlacement;
-            var textColor = this.ActualTextColor;
+            var textColor = (itemTextColor != OxyColors.Undefined) ? itemTextColor : this.ActualTextColor;
             if (labelPlacement == LabelPlacement.Inside || labelPlacement == LabelPlacement.Middle)
             {
-                var textSize = rc.MeasureText(s, this.Font, this.FontSize, this.FontWeight);
+                var textSize = rc.MeasureText(s, this.ActualFont, this.ActualFontSize, this.ActualFontWeight);
                 if (textSize.Height > rect.Height)
                 {
                     labelPlacement = LabelPlacement.Outside;
-                    if (this.AlternativeTextColor != default(OxyColor))
+                    if (itemAlternativeTextColor != OxyColors.Undefined)
+                    {
+                        textColor = itemAlternativeTextColor;
+                    }
+                    else if (this.AlternativeTextColor != OxyColors.Undefined)
                     {
                         textColor = this.AlternativeTextColor;
                     }
                 }
             }
-            
+
             switch (labelPlacement)
             {
                 case LabelPlacement.Inside:

@@ -99,20 +99,27 @@ namespace OxyPlot.Series
         /// <param name="rect">The column rectangle.</param>
         /// <param name="value">The value.</param>
         /// <param name="i">The index.</param>
-        protected override void RenderLabel(IRenderContext rc, OxyRect clippingRect, OxyRect rect, double value, int i)
+        /// <param name="itemTextColor">The item text color.</param>
+        /// <param name="itemAlternativeTextColor">The item alternative text color.</param>
+        protected override void RenderLabel(IRenderContext rc, OxyRect clippingRect, OxyRect rect, 
+            double value, int i, OxyColor itemTextColor, OxyColor itemAlternativeTextColor)
         {
             var s = FormatValue(value, i);
             ScreenPoint pt;
             VerticalAlignment va;
             var labelPlacement = this.LabelPlacement;
-            var textColor = this.ActualTextColor;
+            var textColor = (itemTextColor != OxyColors.Undefined) ? itemTextColor : this.ActualTextColor;
             if (labelPlacement == LabelPlacement.Inside || labelPlacement == LabelPlacement.Middle)
             {
                 var textSize = rc.MeasureText(s, this.ActualFont, this.ActualFontSize, this.ActualFontWeight);
                 if (textSize.Height > rect.Height)
                 {
                     labelPlacement = LabelPlacement.Outside;
-                    if (this.AlternativeTextColor != default(OxyColor))
+                    if (itemAlternativeTextColor != OxyColors.Undefined)
+                    {
+                        textColor = itemAlternativeTextColor;
+                    }
+                    else if (this.AlternativeTextColor != OxyColors.Undefined)
                     {
                         textColor = this.AlternativeTextColor;
                     }
