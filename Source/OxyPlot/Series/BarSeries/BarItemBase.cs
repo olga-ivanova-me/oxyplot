@@ -22,6 +22,8 @@ namespace OxyPlot.Series
             // Label = null;
             this.Value = double.NaN;
             this.Color = OxyColors.Automatic;
+			this.TextColor = OxyColors.Undefined;
+            this.AlternativeTextColor = OxyColors.Undefined;
         }
 
         /// <summary>
@@ -29,6 +31,21 @@ namespace OxyPlot.Series
         /// </summary>
         /// <remarks>If the color is not specified (default), the color of the series will be used.</remarks>
         public OxyColor Color { get; set; }
+
+        /// <summary>
+        /// Gets or sets the text color of the item.
+        /// </summary>
+        /// <remarks>If the color is not specified (default), the color of the series will be used.</remarks>
+        public OxyColor TextColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the text color of the bar labels when their placement differ from the 
+        /// set property <see cref="P:LabelPlacement"/>. 
+        /// (e.g. when bar label should be placed inside the bar but there are no place for label. 
+        /// So, it will be placed outside with this color.)
+        /// </summary>
+        /// <remarks>If the color is not specified (default), the color of the series will be used.</remarks>
+        public OxyColor AlternativeTextColor { get; set; }
 
         /// <summary>
         /// Gets or sets the value of the item.
