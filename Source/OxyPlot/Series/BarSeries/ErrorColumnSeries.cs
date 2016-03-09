@@ -132,6 +132,7 @@ namespace OxyPlot.Series
         /// <param name="categoryValue">The category value.</param>
         /// <param name="actualBarWidth">The actual width of the bar.</param>
         /// <param name="item">The item.</param>
+        /// <param name="itemIndex">The item index.</param>
         /// <param name="rect">The rectangle of the bar.</param>
         protected override void RenderItem(
             IRenderContext rc,
@@ -140,9 +141,10 @@ namespace OxyPlot.Series
             double categoryValue,
             double actualBarWidth,
             BarItemBase item,
+            int itemIndex,
             OxyRect rect)
         {
-            base.RenderItem(rc, clippingRect, topValue, categoryValue, actualBarWidth, item, rect);
+            base.RenderItem(rc, clippingRect, topValue, categoryValue, actualBarWidth, item, itemIndex, rect);
 
             var errorItem = item as ErrorColumnItem;
             if (errorItem == null)
