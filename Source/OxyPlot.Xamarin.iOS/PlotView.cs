@@ -344,5 +344,19 @@ namespace OxyPlot.Xamarin.iOS
                 this.ActualController?.HandleTouchCompleted(this, touch.ToTouchEventArgs(this));
             }
         }
+
+        /// <summary>
+        /// From UIView.
+        /// </summary>
+        public override void TouchesEnded(NSSet touches, UIEvent evt)
+        {
+            base.TouchesEnded(touches, evt);
+
+            if (evt.Type == UIEventType.Touches)
+            {
+                var touch = (UITouch)touches.First();
+                this.ActualController?.HandleTouchCompleted(this, touch.ToTouchEventArgs(this));
+            }
+        }
     }
 }
