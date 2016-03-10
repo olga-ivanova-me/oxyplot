@@ -256,7 +256,7 @@ namespace OxyPlot.Series
                 var rect = this.GetRectangle(baseValue, topValue, categoryValue, categoryValue + actualBarWidth);
                 this.ActualBarRectangles.Add(rect);
 
-                this.RenderItem(rc, clippingRect, topValue, categoryValue, actualBarWidth, item, rect);
+                this.RenderItem(rc, clippingRect, topValue, categoryValue, actualBarWidth, item, i, rect);
 
                 if (this.LabelFormatString != null || this.LabelFormatter != null)
                 {
@@ -489,6 +489,7 @@ namespace OxyPlot.Series
         /// <param name="categoryValue">The category value.</param>
         /// <param name="actualBarWidth">The actual width of the bar.</param>
         /// <param name="item">The item.</param>
+        /// <param name="itemIndex">The item index.</param>
         /// <param name="rect">The rectangle of the bar.</param>
         protected virtual void RenderItem(
             IRenderContext rc,
@@ -497,6 +498,7 @@ namespace OxyPlot.Series
             double categoryValue,
             double actualBarWidth,
             BarItemBase item,
+            int itemIndex,
             OxyRect rect)
         {
             // Get the color of the item
@@ -513,7 +515,17 @@ namespace OxyPlot.Series
             // Get the shadow radius of the item
             var actualShadowRadius = (item.ShadowRadius != 0) ? item.ShadowRadius : this.ShadowRadius;
 
-            rc.DrawClippedRectangleAsPolygon(clippingRect, rect, this.GetSelectableFillColor(actualFillColor), this.StrokeColor, this.StrokeThickness, actualShadowRadius);
+            OxyColor selectableFillColor;
+            if (this.Selectable && this.SelectionMode != SelectionMode.All)
+            {
+                selectableFillColor = this.GetSelectableFillColor(actualFillColor, itemIndex);
+            }
+            else
+            {
+                selectableFillColor = this.GetSelectableFillColor(actualFillColor);
+            }
+
+            rc.DrawClippedRectangleAsPolygon(clippingRect, rect, selectableFillColor, this.StrokeColor, this.StrokeThickness, actualShadowRadius);
         }
 
         /// <summary>
