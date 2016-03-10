@@ -11,8 +11,6 @@ namespace OxyPlot.Xamarin.iOS
 {
     using Foundation;
     using OxyPlot;
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
     using UIKit;
 
@@ -32,8 +30,6 @@ namespace OxyPlot.Xamarin.iOS
         /// </summary>
         private IPlotController defaultController;
 
-        private PanZoomGestureRecognizer panZoomGesture = new PanZoomGestureRecognizer();
-               
         /// <summary>
         /// Initializes a new instance of the <see cref="OxyPlot.Xamarin.iOS.PlotView"/> class.
         /// </summary>
@@ -79,11 +75,6 @@ namespace OxyPlot.Xamarin.iOS
             this.MultipleTouchEnabled = true;
             this.BackgroundColor = UIColor.White;
             this.KeepAspectRatioWhenPinching = true;
-
-			this.panZoomGesture.AddTarget(HandlePanZoomGesture);
-
-            // Do not intercept touches on overlapping views
-            this.panZoomGesture.ShouldReceiveTouch += (recognizer, touch) => touch.View == this;
         }
 
         /// <summary>
@@ -194,8 +185,9 @@ namespace OxyPlot.Xamarin.iOS
         /// <value><c>true</c> if keep aspect ratio when pinching; otherwise, <c>false</c>.</value>
         public bool KeepAspectRatioWhenPinching
         {
-            get { return this.panZoomGesture.KeepAspectRatioWhenPinching; }
-            set { this.panZoomGesture.KeepAspectRatioWhenPinching = value; }
+            // TODO KeepAspectRatioWhenPinching
+            get;
+            set;
         }
 
         /// <summary>
@@ -204,8 +196,9 @@ namespace OxyPlot.Xamarin.iOS
         /// </summary>
         public double ZoomThreshold
         {
-            get { return this.panZoomGesture.ZoomThreshold; }
-            set { this.panZoomGesture.ZoomThreshold = value; }
+            // TODO ZoomThreshold
+            get;
+            set;
         }
 
         /// <summary>
@@ -215,8 +208,9 @@ namespace OxyPlot.Xamarin.iOS
         /// </summary>
         public bool AllowPinchPastZero
         {
-            get { return this.panZoomGesture.AllowPinchPastZero; }
-            set { this.panZoomGesture.AllowPinchPastZero = value; }
+            // TODO AllowPinchPastZero
+            get;
+            set;
         }
 
         /// <summary>
@@ -323,39 +317,31 @@ namespace OxyPlot.Xamarin.iOS
             }
         }
 
-		/// <summary>
-		/// Used to add/remove the gesture recognizer so that it
-		/// doesn't prevent the PlotView from being garbage-collected.
-		/// </summary>
-		/// <param name="newsuper">New superview</param>
-		public override void WillMoveToSuperview (UIView newsuper)
-		{
-			if (newsuper == null)
-			{
-				this.RemoveGestureRecognizer (this.panZoomGesture);
-			}
-			else if (this.Superview == null)
-			{
-				this.AddGestureRecognizer (this.panZoomGesture);
-			}
-
-			base.WillMoveToSuperview (newsuper);
-		}
-
-        private void HandlePanZoomGesture()
+        /// <summary>
+        /// From UIView.
+        /// </summary>
+        public override void TouchesBegan(NSSet touches, UIEvent evt)
         {
-            switch (panZoomGesture.State)
+            base.TouchesBegan(touches, evt);
+
+            if (evt.Type == UIEventType.Touches)
             {
-                case UIGestureRecognizerState.Began:
-                    ActualController.HandleTouchStarted(this, panZoomGesture.TouchEventArgs);
-                    break;
-                case UIGestureRecognizerState.Changed:
-                    ActualController.HandleTouchDelta(this, panZoomGesture.TouchEventArgs);
-                    break;
-                case UIGestureRecognizerState.Ended:
-                case UIGestureRecognizerState.Cancelled:
-                    ActualController.HandleTouchCompleted(this, panZoomGesture.TouchEventArgs);
-                    break;
+                var touch = (UITouch) touches.First();
+                this.ActualController?.HandleTouchStarted(this, touch.ToTouchEventArgs(this));
+            }
+        }
+
+        /// <summary>
+        /// From UIView.
+        /// </summary>
+        public override void TouchesCancelled(NSSet touches, UIEvent evt)
+        {
+            base.TouchesCancelled(touches, evt);
+
+            if (evt.Type == UIEventType.Touches)
+            {
+                var touch = (UITouch) touches.First();
+                this.ActualController?.HandleTouchCompleted(this, touch.ToTouchEventArgs(this));
             }
         }
     }
