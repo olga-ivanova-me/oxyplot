@@ -289,6 +289,7 @@ namespace OxyPlot.Xamarin.Android
         public override bool OnTouchEvent(MotionEvent e)
         {
             var handled = base.OnTouchEvent(e);
+
             if (!handled)
             {
                 switch (e.Action)
@@ -301,6 +302,9 @@ namespace OxyPlot.Xamarin.Android
                         break;
                     case MotionEventActions.Up:
                         handled = this.OnTouchUpEvent(e);
+                        break;
+                    case MotionEventActions.Cancel:
+                        handled = this.OnTouchCancelEvent(e);
                         break;
                 }
             }
@@ -397,6 +401,19 @@ namespace OxyPlot.Xamarin.Android
         private bool OnTouchUpEvent(MotionEvent e)
         {
             return this.ActualController.HandleTouchCompleted(this, e.ToTouchEventArgs(Scale));
+        }
+
+        /// <summary>
+        /// Handles touch cancelled events.
+        /// </summary>
+        /// <param name="e">The motion event arguments.</param>
+        /// <returns><c>true</c> if the event was handled.</returns>
+        private bool OnTouchCancelEvent(MotionEvent e)
+        {
+            // make the touch completed in abnormal way by making invalid position
+            var args = e.ToTouchEventArgs(Scale);
+            args.Position = ScreenPoint.Undefined;
+            return this.ActualController.HandleTouchCompleted(this, args);
         }
     }
 }
