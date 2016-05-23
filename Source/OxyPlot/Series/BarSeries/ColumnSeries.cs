@@ -19,6 +19,11 @@ namespace OxyPlot.Series
     public class ColumnSeries : BarSeriesBase<ColumnItem>
     {
         /// <summary>
+        /// The min height of the bar item
+        /// </summary>
+        private const int ColumnMinHeight = 5;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ColumnSeries" /> class.
         /// </summary>
         public ColumnSeries()
@@ -79,7 +84,15 @@ namespace OxyPlot.Series
         /// <returns>The rectangle.</returns>
         protected override OxyRect GetRectangle(double baseValue, double topValue, double beginValue, double endValue)
         {
-            return new OxyRect(this.Transform(beginValue, baseValue), this.Transform(endValue, topValue));
+            var rect = new OxyRect(this.Transform(beginValue, baseValue), this.Transform(endValue, topValue));
+            
+            // checks whether the column height is greater than min height or not.
+            if (rect.Height < ColumnMinHeight)
+            {
+                var top = rect.Bottom - ColumnMinHeight;
+                rect = new OxyRect(rect.Left, top, rect.Width, ColumnMinHeight);
+            }
+            return rect;
         }
 
         /// <summary>
