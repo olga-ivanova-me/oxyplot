@@ -104,13 +104,16 @@ namespace OxyPlot.Axes
         /// <returns>The colors.</returns>
         public IEnumerable<OxyColor> GetColors()
         {
-            yield return this.LowColor;
+            var list = new List<OxyColor>();
+
+            list.Add(this.LowColor);
             foreach (var color in this.Palette.Colors)
             {
-                yield return color;
+                list.Add(color);
             }
 
-            yield return this.HighColor;
+            list.Add(this.HighColor);
+            return list;
         }
 
         /// <summary>

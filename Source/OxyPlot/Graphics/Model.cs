@@ -59,14 +59,17 @@ namespace OxyPlot
         /// </returns>
         public IEnumerable<HitTestResult> HitTest(HitTestArguments args)
         {
+            var list = new List<HitTestResult>();
             foreach (var element in this.GetHitTestElements())
             {
                 var result = element.HitTest(args);
                 if (result != null)
                 {
-                    yield return result;
+                    list.Add(result);
                 }
             }
+
+            return list;
         }
 
         /// <summary>

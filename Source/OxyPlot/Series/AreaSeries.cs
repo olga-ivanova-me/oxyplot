@@ -419,15 +419,17 @@ namespace OxyPlot.Series
         /// <returns>A sequence of <see cref="T:DataPoint"/>.</returns>
         private IEnumerable<DataPoint> GetConstantPoints2()
         {
+            var list  = new List<DataPoint>();
             var actualPoints = this.ActualPoints;
             if (!double.IsNaN(this.ConstantY2) && actualPoints.Count > 0)
             {
                 // Use ConstantY2
                 var x0 = actualPoints[0].X;
                 var x1 = actualPoints[actualPoints.Count - 1].X;
-                yield return new DataPoint(x0, this.ConstantY2);
-                yield return new DataPoint(x1, this.ConstantY2);
+                list.Add(new DataPoint(x0, this.ConstantY2));
+                list.Add(new DataPoint(x1, this.ConstantY2));
             }
+            return list;
         }
 
         /// <summary>
@@ -440,12 +442,15 @@ namespace OxyPlot.Series
         /// <returns>A collection of a collection of <typeparamref name="T"/> items</returns>
         private IEnumerable<IEnumerable<T>> Split<T>(IEnumerable<T> source, Func<T, bool> splitCondition)
         {
+            var list = new List<IEnumerable<T>>();
             source = source.SkipWhile(splitCondition);
             while (source.Any())
             {
-                yield return source.TakeWhile(x => !splitCondition(x));
+                list.Add(source.TakeWhile(x => !splitCondition(x)));
                 source = source.SkipWhile(x => !splitCondition(x)).SkipWhile(splitCondition);
             }
+
+            return list;
         }
     }
 }

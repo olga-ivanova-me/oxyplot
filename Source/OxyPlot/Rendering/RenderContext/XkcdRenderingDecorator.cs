@@ -340,6 +340,7 @@ namespace OxyPlot
         /// <returns>The interpolated points.</returns>
         private IEnumerable<ScreenPoint> Interpolate(IEnumerable<ScreenPoint> input, double dist)
         {
+            var list = new List<ScreenPoint>();
             var p0 = default(ScreenPoint);
             double l = -1;
             double nl = dist;
@@ -347,7 +348,7 @@ namespace OxyPlot
             {
                 if (l < 0)
                 {
-                    yield return p1;
+                    list.Add(p1);
                     p0 = p1;
                     l = 0;
                     continue;
@@ -361,7 +362,7 @@ namespace OxyPlot
                     while (nl >= l && nl <= l + l1)
                     {
                         var f = (nl - l) / l1;
-                        yield return new ScreenPoint((p0.X * (1 - f)) + (p1.X * f), (p0.Y * (1 - f)) + (p1.Y * f));
+                        list.Add(new ScreenPoint((p0.X * (1 - f)) + (p1.X * f), (p0.Y * (1 - f)) + (p1.Y * f)));
 
                         nl += dist;
                     }
@@ -371,7 +372,8 @@ namespace OxyPlot
                 p0 = p1;
             }
 
-            yield return p0;
+            list.Add(p0);
+            return list;
         }
 
         /*

@@ -1163,35 +1163,38 @@ namespace OxyPlot
         /// </returns>
         protected override IEnumerable<PlotElement> GetHitTestElements()
         {
+            var list = new List<PlotElement>();
             foreach (var axis in this.Axes.Reverse().Where(a => a.IsAxisVisible && a.Layer == AxisLayer.AboveSeries))
             {
-                yield return axis;
+                list.Add(axis);
             }
 
             foreach (var annotation in this.Annotations.Reverse().Where(a => a.Layer == AnnotationLayer.AboveSeries))
             {
-                yield return annotation;
+                list.Add(annotation);
             }
 
             foreach (var s in this.Series.Reverse().Where(s => s.IsVisible))
             {
-                yield return s;
+                list.Add(s);
             }
 
             foreach (var annotation in this.Annotations.Reverse().Where(a => a.Layer == AnnotationLayer.BelowSeries))
             {
-                yield return annotation;
+                list.Add(annotation);
             }
 
             foreach (var axis in this.Axes.Reverse().Where(a => a.IsAxisVisible && a.Layer == AxisLayer.BelowSeries))
             {
-                yield return axis;
+                list.Add(axis);
             }
 
             foreach (var annotation in this.Annotations.Reverse().Where(a => a.Layer == AnnotationLayer.BelowAxes))
             {
-                yield return annotation;
+                list.Add(annotation);
             }
+
+            return list;
         }
 
         /// <summary>

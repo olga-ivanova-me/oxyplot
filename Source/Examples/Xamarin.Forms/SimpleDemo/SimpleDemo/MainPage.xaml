@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+             xmlns:local="clr-namespace:SimpleDemo;assembly=SimpleDemo"
+             x:Class="SimpleDemo.MainPage">
+
+  <ContentPage.BindingContext>
+    <local:MainViewModel />
+  </ContentPage.BindingContext>
+
+  <ListView x:Name="ListView"
+            ItemsSource="{Binding List}"
+            Header="{Binding .}">
+
+    <ListView.HeaderTemplate>
+      <DataTemplate>
+
+          <StackLayout Orientation="Vertical"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand">
+              <forms:PlotView x:Name="BarChartView"
+                              Model="{Binding Model}"
+                              HeightRequest="200" />
+          </StackLayout>
+
+      </DataTemplate>
+    </ListView.HeaderTemplate>
+
+  </ListView>
+</ContentPage>

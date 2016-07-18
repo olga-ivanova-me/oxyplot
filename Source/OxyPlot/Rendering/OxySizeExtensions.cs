@@ -97,10 +97,8 @@ namespace OxyPlot
                 p3 = rotate(p3);
             }
 
-            yield return origin + p0;
-            yield return origin + p1;
-            yield return origin + p2;
-            yield return origin + p3;
+            var list = new List<ScreenPoint>() { origin + p0, origin + p1, origin + p2, origin + p3 };
+            return list;
         }
     }
 }
