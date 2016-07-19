@@ -1,6 +1,11 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "OxyPlot": "1.1.0-temp-yield-opera0001",
+    "OxyPlot.Core": "1.1.0-temp-yield-opera0001",
+    "OxyPlot.Windows": "1.1.0-temp-yield-opera0001",
+    "OxyPlot.WindowsUniversal": "1.1.0-temp-yield-opera0001",
+    "OxyPlot.Xamarin.Forms": "1.1.0-temp-yield-opera0001",
     "Xamarin.Forms": "2.0.0.6490"
   },
   "frameworks": {

@@ -201,6 +201,49 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "OxyPlot/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.WindowsUniversal": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        }
+      },
+      "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Core": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        }
+      },
+      "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]",
+          "Xamarin.Forms": "[2.0.0.6490, )"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.0, )",
@@ -1791,6 +1834,49 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "OxyPlot/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.WindowsUniversal": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        }
+      },
+      "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Core": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        }
+      },
+      "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]",
+          "Xamarin.Forms": "[2.0.0.6490, )"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3416,6 +3502,49 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "OxyPlot/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.WindowsUniversal": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        }
+      },
+      "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Core": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        }
+      },
+      "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]",
+          "Xamarin.Forms": "[2.0.0.6490, )"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5048,6 +5177,49 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "OxyPlot/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.WindowsUniversal": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        }
+      },
+      "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Core": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        }
+      },
+      "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]",
+          "Xamarin.Forms": "[2.0.0.6490, )"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.0, )",
@@ -6671,6 +6843,49 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "OxyPlot/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.WindowsUniversal": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        }
+      },
+      "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Core": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        }
+      },
+      "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]",
+          "Xamarin.Forms": "[2.0.0.6490, )"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -8303,6 +8518,49 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "OxyPlot/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.WindowsUniversal": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        }
+      },
+      "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Core": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        }
+      },
+      "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]",
+          "Xamarin.Forms": "[2.0.0.6490, )"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.0, )",
@@ -9926,6 +10184,49 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "OxyPlot/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.WindowsUniversal": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+        "compile": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll": {}
+        }
+      },
+      "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Core": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Windows.dll": {}
+        }
+      },
+      "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]"
+        }
+      },
+      "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+        "dependencies": {
+          "OxyPlot.Windows": "[1.1.0-temp-yield-opera0001, 1.1.0-temp-yield-opera0001]",
+          "Xamarin.Forms": "[2.0.0.6490, )"
+        },
+        "compile": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.dll": {},
+          "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -11964,6 +12265,141 @@
         "ref/net46/Microsoft.Win32.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
+      ]
+    },
+    "OxyPlot/1.1.0-temp-yield-opera0001": {
+      "sha512": "9R9z0d1K3tZyo9+vUfSOUXUVv8OOWu11e9bWrCWSt6zI5W/HejXi71vh4XoNQYUwyLx26fMubAo6bzPF840sLA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AUTHORS",
+        "CHANGELOG.md",
+        "CONTRIBUTORS",
+        "LICENSE",
+        "OxyPlot.nuspec",
+        "package/services/metadata/core-properties/9828cf2ec4504190a0d16dbf2c4beb3a.psmdcp",
+        "README.md"
+      ]
+    },
+    "OxyPlot.Core/1.1.0-temp-yield-opera0001": {
+      "sha512": "beV8FP2HU8EqQtokOy3NQS+b1htz/Yscz1JslAk99UCGwZfqoVM8xmGYFV2TIsF+7sc/8wNP/xqyVn8aUx+R/w==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AUTHORS",
+        "CHANGELOG.md",
+        "CONTRIBUTORS",
+        "lib/net40/OxyPlot.dll",
+        "lib/net40/OxyPlot.pdb",
+        "lib/net40/OxyPlot.XML",
+        "lib/net40-client/OxyPlot.dll",
+        "lib/net40-client/OxyPlot.pdb",
+        "lib/net40-client/OxyPlot.XML",
+        "lib/net45/OxyPlot.dll",
+        "lib/net45/OxyPlot.pdb",
+        "lib/net45/OxyPlot.xml",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/OxyPlot.xml",
+        "lib/sl5/OxyPlot.dll",
+        "lib/sl5/OxyPlot.pdb",
+        "lib/sl5/OxyPlot.XML",
+        "LICENSE",
+        "OxyPlot.Core.nuspec",
+        "package/services/metadata/core-properties/e73f6d5697814956b17e630018990823.psmdcp",
+        "README.md"
+      ]
+    },
+    "OxyPlot.Windows/1.1.0-temp-yield-opera0001": {
+      "sha512": "cQfXbSk75szghsiG5lHAsvOtmdUziASNI9smaDBOcMIAcdGdhjvj7H90vdMPeZEDqNFbvEv5rHCa9uu/zv1zug==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AUTHORS",
+        "CHANGELOG.md",
+        "CONTRIBUTORS",
+        "lib/portable-windows8+wpa81/OxyPlot.Windows.dll",
+        "lib/portable-windows8+wpa81/OxyPlot.Windows.pdb",
+        "lib/portable-windows8+wpa81/OxyPlot.Windows.pri",
+        "lib/portable-windows8+wpa81/OxyPlot.Windows.xml",
+        "lib/portable-windows8+wpa81/OxyPlot.Windows/OxyPlot.Windows.xr.xml",
+        "lib/portable-windows8+wpa81/OxyPlot.Windows/Themes/Generic.xbf",
+        "lib/uap10.0/OxyPlot.Windows.dll",
+        "lib/uap10.0/OxyPlot.Windows.pdb",
+        "lib/uap10.0/OxyPlot.Windows.pri",
+        "lib/uap10.0/OxyPlot.Windows/OxyPlot.Windows.xr.xml",
+        "lib/uap10.0/OxyPlot.Windows/Properties/OxyPlot.Windows10.rd.xml",
+        "lib/uap10.0/OxyPlot.Windows/Themes/Generic.xbf",
+        "LICENSE",
+        "OxyPlot.Windows.nuspec",
+        "package/services/metadata/core-properties/0a780bcc9c744afea115a724cc057337.psmdcp",
+        "README.md"
+      ]
+    },
+    "OxyPlot.WindowsUniversal/1.1.0-temp-yield-opera0001": {
+      "sha512": "9YiekeZzOIU43QqSG1PUg65y+wsgw45bjFyd5EbutlhSChIQgiTQXid4quV2VQOa4uuutkODtT9tQQ54+oTiZA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AUTHORS",
+        "CHANGELOG.md",
+        "CONTRIBUTORS",
+        "LICENSE",
+        "OxyPlot.WindowsUniversal.nuspec",
+        "package/services/metadata/core-properties/510b5395fc254c3a9c662e7f36e3fd62.psmdcp",
+        "README.md"
+      ]
+    },
+    "OxyPlot.Xamarin.Forms/1.1.0-temp-yield-opera0001": {
+      "sha512": "V/0FjBWnyRG4EXDPoSnyvfDi5GfV77EWqOydZZ9aBaKUoZlcwk0Ne0Nae5VaLPZXO5qyUBFNCuW2xgixC+kDDg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AUTHORS",
+        "CHANGELOG.md",
+        "CONTRIBUTORS",
+        "lib/MonoAndroid10/OxyPlot.Xamarin.Forms.dll",
+        "lib/MonoAndroid10/OxyPlot.Xamarin.Forms.pdb",
+        "lib/MonoAndroid10/OxyPlot.Xamarin.Forms.Platform.Android.dll",
+        "lib/MonoAndroid10/OxyPlot.Xamarin.Forms.Platform.Android.pdb",
+        "lib/MonoAndroid10/OxyPlot.Xamarin.Forms.Platform.Android.XML",
+        "lib/MonoAndroid10/OxyPlot.Xamarin.Forms.xml",
+        "lib/MonoTouch10/OxyPlot.Xamarin.Forms.dll",
+        "lib/MonoTouch10/OxyPlot.Xamarin.Forms.pdb",
+        "lib/MonoTouch10/OxyPlot.Xamarin.Forms.Platform.iOS.Classic.dll",
+        "lib/MonoTouch10/OxyPlot.Xamarin.Forms.Platform.iOS.Classic.pdb",
+        "lib/MonoTouch10/OxyPlot.Xamarin.Forms.Platform.iOS.Classic.XML",
+        "lib/MonoTouch10/OxyPlot.Xamarin.Forms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10+uap10.0/OxyPlot.Xamarin.Forms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10+uap10.0/OxyPlot.Xamarin.Forms.pdb",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10+uap10.0/OxyPlot.Xamarin.Forms.XML",
+        "lib/uap10.0/OxyPlot.Xamarin.Forms.dll",
+        "lib/uap10.0/OxyPlot.Xamarin.Forms.pdb",
+        "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.dll",
+        "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.pdb",
+        "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.pri",
+        "lib/uap10.0/OxyPlot.Xamarin.Forms.Platform.UWP.XML",
+        "lib/uap10.0/OxyPlot.Xamarin.Forms.xml",
+        "lib/wp80/OxyPlot.Xamarin.Forms.dll",
+        "lib/wp80/OxyPlot.Xamarin.Forms.pdb",
+        "lib/wp80/OxyPlot.Xamarin.Forms.Platform.WP8.dll",
+        "lib/wp80/OxyPlot.Xamarin.Forms.Platform.WP8.pdb",
+        "lib/wp80/OxyPlot.Xamarin.Forms.Platform.WP8.XML",
+        "lib/wp80/OxyPlot.Xamarin.Forms.xml",
+        "lib/Xamarin.iOS10/OxyPlot.Xamarin.Forms.dll",
+        "lib/Xamarin.iOS10/OxyPlot.Xamarin.Forms.pdb",
+        "lib/Xamarin.iOS10/OxyPlot.Xamarin.Forms.Platform.iOS.dll",
+        "lib/Xamarin.iOS10/OxyPlot.Xamarin.Forms.Platform.iOS.XML",
+        "lib/Xamarin.iOS10/OxyPlot.Xamarin.Forms.xml",
+        "LICENSE",
+        "OxyPlot.Xamarin.Forms.nuspec",
+        "package/services/metadata/core-properties/9c49536d2e2749bd9a92969bd8f30151.psmdcp",
+        "README.md"
       ]
     },
     "System.AppContext/4.0.0": {
@@ -14766,6 +15202,11 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
+      "OxyPlot >= 1.1.0-temp-yield-opera0001",
+      "OxyPlot.Core >= 1.1.0-temp-yield-opera0001",
+      "OxyPlot.Windows >= 1.1.0-temp-yield-opera0001",
+      "OxyPlot.WindowsUniversal >= 1.1.0-temp-yield-opera0001",
+      "OxyPlot.Xamarin.Forms >= 1.1.0-temp-yield-opera0001",
       "Xamarin.Forms >= 2.0.0.6490"
     ],
     "UAP,Version=v10.0": []

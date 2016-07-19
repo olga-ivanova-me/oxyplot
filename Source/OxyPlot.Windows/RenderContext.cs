@@ -417,7 +417,7 @@ namespace OxyPlot.Windows
             OxySize? maxSize)
         {
             var tb = new TextBlock { Text = text, Foreground = new SolidColorBrush(fill.ToColor()) };
-
+            
             // tb.SetValue(TextOptions.TextHintingModeProperty, TextHintingMode.Animated);
             if (fontFamily != null)
             {
