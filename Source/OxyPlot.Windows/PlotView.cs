@@ -168,7 +168,7 @@ namespace OxyPlot.Windows
 
             this.trackerDefinitions = new ObservableCollection<TrackerDefinition>();
             this.Loaded += this.OnLoaded;
-            this.SizeChanged += this.OnSizeChanged;
+            Window.Current.SizeChanged += CurrentOnSizeChanged;
             this.ManipulationMode = ManipulationModes.Scale | ManipulationModes.TranslateX
                                     | ManipulationModes.TranslateY;
 
@@ -177,6 +177,16 @@ namespace OxyPlot.Windows
 
             // in case of mouse absence and touch presence, raise mouse events
             mapTouchToMouse = mouses.MousePresent == 0 && touches.TouchPresent != 0;
+        }
+
+        /// <summary>
+        /// TODO remove
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="windowSizeChangedEventArgs"></param>
+        private void CurrentOnSizeChanged(object sender, WindowSizeChangedEventArgs windowSizeChangedEventArgs)
+        {
+            this.InvalidatePlot(false);
         }
 
         /// <summary>

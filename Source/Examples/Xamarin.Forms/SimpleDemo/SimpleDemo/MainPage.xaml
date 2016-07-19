@@ -19,9 +19,14 @@
                     <StackLayout Orientation="Vertical"
                                  HorizontalOptions="FillAndExpand"
                                  VerticalOptions="FillAndExpand">
-              <forms:PlotView x:Name="BarChartView"
+             
+                    <local:CustomLabel/>
+<!--
+ <forms:PlotView x:Name="BarChartView"
                               Model="{Binding Model}"
                               HeightRequest="200" />
+                              -->
+                              
                     </StackLayout>
             </DataTemplate>
         </ListView.HeaderTemplate>

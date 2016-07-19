@@ -10,7 +10,7 @@ using Xamarin.Forms.Platform.UWP;
 
 namespace SimpleDemo.UWP
 {
-    public class CustomLabelRenderer : ViewRenderer<Label, UserControl>
+    public class CustomLabelRenderer : ViewRenderer<Label, Control>
     {
         /// <summary>
         /// From LAbelRenderer
