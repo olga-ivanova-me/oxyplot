@@ -123,7 +123,7 @@ namespace OxyPlot.Series
                     ha = HorizontalAlignment.Left;
                     break;
             }
-
+            var maxSize = new OxySize(rect.Width - 2 * this.LabelMargin, rect.Height);
             rc.DrawClippedText(
                 clippingRect,
                 pt,
@@ -134,7 +134,8 @@ namespace OxyPlot.Series
                 this.ActualFontWeight,
                 0,
                 ha,
-                VerticalAlignment.Middle);
+                VerticalAlignment.Middle,
+                maxSize);
         }
 
         /// <summary>
