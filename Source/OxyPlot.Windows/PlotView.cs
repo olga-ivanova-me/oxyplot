@@ -155,6 +155,11 @@ namespace OxyPlot.Windows
         private ContentControl zoomRectangle;
 
         /// <summary>
+        /// Flag to handle touch pointer events as moust actions.
+        /// </summary>
+        private readonly bool mapTouchToMouse;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref = "PlotView" /> class.
         /// </summary>
         public PlotView()
@@ -166,6 +171,12 @@ namespace OxyPlot.Windows
             this.SizeChanged += this.OnSizeChanged;
             this.ManipulationMode = ManipulationModes.Scale | ManipulationModes.TranslateX
                                     | ManipulationModes.TranslateY;
+
+            var touches = new TouchCapabilities();
+            var mouses = new MouseCapabilities();
+
+            // in case of mouse absence and touch presence, raise mouse events
+            mapTouchToMouse = mouses.MousePresent == 0 && touches.TouchPresent != 0;
         }
 
         /// <summary>
@@ -685,7 +696,8 @@ namespace OxyPlot.Windows
                 return;
             }
 
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse ||
+                (mapTouchToMouse && e.Pointer.PointerDeviceType == PointerDeviceType.Touch))
             {
                 this.Focus(FocusState.Pointer);
                 this.CapturePointer(e.Pointer);
@@ -713,7 +725,8 @@ namespace OxyPlot.Windows
                 return;
             }
 
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse ||
+                (mapTouchToMouse && e.Pointer.PointerDeviceType == PointerDeviceType.Touch))
             {
                 e.Handled = this.ActualController.HandleMouseMove(this, e.ToMouseEventArgs(this));
             }
@@ -734,7 +747,8 @@ namespace OxyPlot.Windows
                 return;
             }
 
-            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse)
+            if (e.Pointer.PointerDeviceType == PointerDeviceType.Mouse ||
+                (mapTouchToMouse && e.Pointer.PointerDeviceType == PointerDeviceType.Touch))
             {
                 this.ReleasePointerCapture(e.Pointer);
                 e.Handled = this.ActualController.HandleMouseUp(this, e.ToMouseEventArgs(this));
