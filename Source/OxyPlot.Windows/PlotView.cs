@@ -359,6 +359,17 @@ namespace OxyPlot.Windows
         /// Invalidate the PlotView (not blocking the UI thread)
         /// </summary>
         /// <param name="update">if set to <c>true</c>, the data collections will be updated.</param>
+        private void InvalidatePlotForced(bool update = true)
+        {
+            // Make sure InvalidateArrange is called when the PlotView is invalidated
+            Interlocked.Exchange(ref this.isPlotInvalidated, 0);
+            this.InvalidatePlot(update);
+        }
+
+        /// <summary>
+        /// Invalidate the PlotView (not blocking the UI thread)
+        /// </summary>
+        /// <param name="update">if set to <c>true</c>, the data collections will be updated.</param>
         public void InvalidatePlot(bool update = true)
         {
             this.UpdateModel(update);
@@ -826,9 +837,7 @@ namespace OxyPlot.Windows
         /// <param name="e">The <see cref="RoutedEventArgs" /> instance containing the event data.</param>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            // Make sure InvalidateArrange is called when the PlotView is invalidated
-            Interlocked.Exchange(ref this.isPlotInvalidated, 0);
-            this.InvalidatePlot();
+            this.InvalidatePlotForced();
         }
 
         /// <summary>
@@ -851,7 +860,7 @@ namespace OxyPlot.Windows
                 }
             }
 
-            this.InvalidatePlot();
+            this.InvalidatePlotForced();
         }
 
         /// <summary>
@@ -861,7 +870,7 @@ namespace OxyPlot.Windows
         /// <param name="e">The <see cref="SizeChangedEventArgs" /> instance containing the event data.</param>
         private void OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            this.InvalidatePlot(false);
+            this.InvalidatePlotForced(false);
         }
 
         /// <summary>
